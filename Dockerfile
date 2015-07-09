@@ -77,7 +77,7 @@ RUN sh ./bootstrap && \
 # Caveat: Lack in Quicklisp dists is not loadable due to https://github.com/fukamachi/lack/commit/c0ead6f980c1eec2b276258f0ac5805347255ea9
 ###
 
-RUN git clone https://github.com/fukamachi/lack $HOME/.roswell/impls/ALL/ALL/quicklisp/local-projects/lack && \
+RUN git clone https://github.com/fukamachi/lack $HOME/.roswell/local-projects/lack && \
     ros install clack && \
     cp $HOME/.roswell/bin/clackup /usr/local/bin/
 
@@ -85,7 +85,7 @@ RUN git clone https://github.com/fukamachi/lack $HOME/.roswell/impls/ALL/ALL/qui
 ################################################################
 ## qlot
 
-RUN git clone https://github.com/fukamachi/qlot $HOME/.roswell/impls/ALL/ALL/quicklisp/local-projects/qlot && \
+RUN git clone https://github.com/fukamachi/qlot $HOME/.roswell/local-projects/qlot && \
     ros install qlot && \
     cp $HOME/.roswell/bin/qlot /usr/local/bin/
 
@@ -93,7 +93,7 @@ RUN git clone https://github.com/fukamachi/qlot $HOME/.roswell/impls/ALL/ALL/qui
 ################################################################
 ## woo
 
-RUN git clone https://github.com/fukamachi/woo $HOME/.roswell/impls/ALL/ALL/quicklisp/local-projects/woo && \
+RUN git clone https://github.com/fukamachi/woo $HOME/.roswell/local-projects/woo && \
     ros install woo && \
     $HOME/.roswell/bin/install-woo && \
     ros install woo && \
