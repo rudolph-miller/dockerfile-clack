@@ -15,7 +15,11 @@ ENV autoconf_version="2.69" \
 ################################################################
 ## yum
 
-RUN yum -y remove iputils && \ # without this, yum -y update will be failed in CircleCI.
+###
+# Caveat: without remove iputils, yum -y update will be failed in CircleCI.
+###
+
+RUN yum -y remove iputils && \
     yum -y update && \
     yum clean all && \
     yum -y groupinstall 'Development tools'
@@ -69,15 +73,21 @@ RUN sh ./bootstrap && \
 ################################################################
 ## clack
 
+###
+# Caveat: Lack in Quicklisp dists is not loadable due to https://github.com/fukamachi/lack/commit/c0ead6f980c1eec2b276258f0ac5805347255ea9
+###
+
 RUN git clone https://github.com/fukamachi/lack $HOME/.roswell/impls/ALL/ALL/quicklisp/local-projects/lack && \
-    ros install clack
+    ros install clack && \
+    cp $HOME/.roswell/bin/clackup /usr/local/bin/
 
 
 ################################################################
 ## qlot
 
 RUN git clone https://github.com/fukamachi/qlot $HOME/.roswell/impls/ALL/ALL/quicklisp/local-projects/qlot && \
-    ros install qlot
+    ros install qlot && \
+    cp $HOME/.roswell/bin/qlot /usr/local/bin/
 
 
 ################################################################
@@ -85,4 +95,6 @@ RUN git clone https://github.com/fukamachi/qlot $HOME/.roswell/impls/ALL/ALL/qui
 
 RUN git clone https://github.com/fukamachi/woo $HOME/.roswell/impls/ALL/ALL/quicklisp/local-projects/woo && \
     ros install woo && \
-    $HOME/.roswell/bin/install-woo
+    $HOME/.roswell/bin/install-woo && \
+    ros install woo && \
+    cp $HOME/.roswell/bin/woo /usr/local/bin/
