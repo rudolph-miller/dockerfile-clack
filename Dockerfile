@@ -15,7 +15,7 @@ ENV autoconf_version="2.69" \
 ################################################################
 ## yum
 
-RUN yum clea all && \
+RUN yum clean all && \
     rpm --rebuilddb && \
     yum -y update && \
     yum -y groupinstall 'Development tools'
