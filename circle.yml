@@ -15,6 +15,8 @@ dependencies:
 
 test:
   override:
+    - dacker run -p 80:80 -d -t rudolphm/clack-test
+    - curl --retry 10 --retry-delay 5 -v http://localhost
     - bundle exec rake
 
 deployment:
