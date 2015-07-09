@@ -3,4 +3,4 @@ require "serverspec"
 
 set :backend, :docker
 set :docker_url, ENV["DOCKER_HOST"]
-set :docker_image, "rudolphm/clack"
+set :docker_image, "rudolphm/clack-test"

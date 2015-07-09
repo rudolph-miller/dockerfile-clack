@@ -10,12 +10,12 @@ dependencies:
     - bundle --path=vendor/bundle
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
+    - bundle exec rake docker:build
+    - mkdir -p ~/docker; docker save rudolphm/clack > ~/docker/image.tar
 
 test:
   override:
-    - bundle exec rake docker:spec
-  post:
-    - mkdir -p ~/docker; docker save rudolphm/clack > ~/docker/image.tar
+    - bundle exec rake
 
 deployment:
   hub: 
