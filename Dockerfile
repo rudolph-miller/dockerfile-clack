@@ -15,7 +15,7 @@ ENV autoconf_version="2.69" \
 ################################################################
 ## yum
 
-RUN yum -y remove iputils && \
+RUN yum -y remove iputils && \ # without this, yum -y update will be failed in CircleCI.
     yum -y update && \
     yum clean all && \
     yum -y groupinstall 'Development tools'
