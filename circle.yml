@@ -1,0 +1,23 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  cache_directories:
+    - "~/docker"
+  override:
+    - docker info
+    - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
+    - docker build -t rudolphm/clack .
+    - mkdir -p ~/docker; docker save rudolphm/clack > ~/docker/image.tar
+
+test:
+  override:
+    - docker run rudolphm/clack
+
+deployment:
+  hub: 
+    branch: master
+    commands:
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push rudolphm/clack
