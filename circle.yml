@@ -13,7 +13,8 @@ dependencies:
 
 test:
   override:
-    - bundle exec rake spec
+    - bundle exec rake docker:spec
+  post:
     - mkdir -p ~/docker; docker save rudolphm/clack > ~/docker/image.tar
 
 deployment:

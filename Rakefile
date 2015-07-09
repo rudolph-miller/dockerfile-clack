@@ -16,6 +16,5 @@ namespace :docker do
     end
   end
 
-  task :test => ['docker:build', 'spec']
+  task :spec => ['docker:build', 'rake:spec']
 end
-
