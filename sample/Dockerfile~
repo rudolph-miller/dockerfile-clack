@@ -1,7 +1,0 @@
-FROM rudolphm/clack:latest
-MAINTAINER Rudolph Miller
-
-
-ADD app.lisp $HOME/sample
-
-WORKDIR $HOME/sample/

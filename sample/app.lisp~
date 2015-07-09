@@ -1,8 +1,0 @@
-(defpackage sample.app
-  (:use :cl
-        :lack))
-(in-package :native-ad2.app)
-
-(builder
- (lambda (env)
-   '(200 (:content-type "text/plain") ("Hello, World"))))

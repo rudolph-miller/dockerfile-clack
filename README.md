@@ -8,9 +8,9 @@ FROM rudolphm/clack:latest
 MAINTAINER Rudolph Miller
 
 
-ADD app.lisp /usr/local/src/sample/
+ADD app.lisp /usr/local/src/clack-test/
 
-ENTRYPOINT ["woo", "--port", "80", "/usr/local/src/sample/app.lisp"]
+ENTRYPOINT ["woo", "--port", "80", "/usr/local/src/clack-test/app.lisp"]
 EXPOSE 80
 ```
 

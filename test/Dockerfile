@@ -5,7 +5,7 @@ MAINTAINER Rudolph Miller
 ################################################################
 ## app.lisp
 
-ADD app.lisp /usr/local/src/sample/
+ADD app.lisp /usr/local/src/clack-test/
 
-ENTRYPOINT ["woo", "--port", "80", "/usr/local/src/sample/app.lisp"]
-EXPOSE 80
+ENTRYPOINT ["woo", "--port", "5000", "/usr/local/src/clack-test/app.lisp"]
+EXPOSE 5000

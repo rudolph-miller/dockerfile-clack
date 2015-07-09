@@ -5,17 +5,16 @@ machine:
 dependencies:
   cache_directories:
     - "~/docker"
+    - "vendor/bundle"
   override:
+    - bundle --path=vendor/bundle
     - docker info
     - if [[ -e ~/docker/image.tar ]]; then docker load --input ~/docker/image.tar; fi
-    - docker build -t rudolphm/clack .
-    - mkdir -p ~/docker; docker save rudolphm/clack > ~/docker/image.tar
 
 test:
   override:
-    - docker build -t rudolphm/clack-sample sample/
-    - docker run -p 8080:80 -d rudolphm/clack-sample; sleep 5
-    - curl --retry 10 --retry-delay 5 -v http://localhost:8080
+    - bundle exec rake spec
+    - mkdir -p ~/docker; docker save rudolphm/clack > ~/docker/image.tar
 
 deployment:
   hub: 
