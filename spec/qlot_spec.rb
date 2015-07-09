@@ -1,5 +1,5 @@
-require "spec_helper"
+require 'spec_helper'
 
-describe command("qlot") do
-  its (:stdout) { should match /Usage/ }
+describe file('/usr/local/bin/qlot') do
+    it { should be_executable }
 end

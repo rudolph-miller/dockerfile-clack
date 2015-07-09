@@ -1,5 +1,5 @@
 require "spec_helper"
 
-describe command("woo") do
-  its (:stderr) { should match /Woo/ }
+describe file('/usr/local/bin/woo') do
+    it { should be_executable }
 end
