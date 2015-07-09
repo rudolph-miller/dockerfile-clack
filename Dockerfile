@@ -16,6 +16,7 @@ ENV autoconf_version="2.69" \
 ## yum
 
 RUN yum -y update && \
+    yum clean all && \
     yum -y groupinstall 'Development tools'
 
 RUN yum -y install \
