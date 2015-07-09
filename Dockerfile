@@ -25,15 +25,9 @@ RUN yum -y remove iputils && \
     yum -y groupinstall 'Development tools'
 
 RUN yum -y install \
-  sudo \
   curl-devel \
   mysql-devel \
   libev
-
-
-################################################################
-## sudo
-RUN sed -i -e "s/Defaults    requiretty.*/ #Defaults    requiretty/g" /etc/sudoers
 
 
 ################################################################
