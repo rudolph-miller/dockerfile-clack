@@ -15,7 +15,7 @@ dependencies:
 
 test:
   override:
-    - bundle exec rake
+    # - bundle exec rake
     - docker run -p 6000:6000 -d -t rudolphm/clack-test
     - curl --retry 10 --retry-delay 5 -v http://localhost:6000
 
