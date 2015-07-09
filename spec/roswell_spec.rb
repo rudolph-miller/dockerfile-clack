@@ -1,7 +1,5 @@
 require "spec_helper"
 
-set :backend, :exec
-
 describe command("ros --version") do
     its (:stderr) { should match /roswell/ }
 end
