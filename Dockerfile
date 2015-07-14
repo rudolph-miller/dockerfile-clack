@@ -31,6 +31,11 @@ RUN yum -y install \
 
 
 ################################################################
+## libmysqlclient_r.so
+
+RUN cp /usr/lib64/mysql/libmysqlclient_r.so /usr/local/lib/libmysqlclient_r.so
+
+################################################################
 ## autoconf
 
 WORKDIR /usr/local/src
