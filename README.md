@@ -23,6 +23,8 @@ With this image (rudolphm/clack), you can use some commands and these commands i
 - qlot
   - [qlot](https://github.com/fukamachi/qlot)
 
+You also can use [cl-mysql](http://www.hackinghat.com/index.php/cl-mysql]) and [Woo](https://github.com/fukamachi/woo).
+
 ## Author
 
 * Rudolph Miller

@@ -58,7 +58,7 @@ RUN ./configure && \
 
 
 ################################################################
-## roswell
+## Roswell
 
 WORKDIR /usr/local/src
 RUN git clone -b release https://github.com/snmsts/roswell
@@ -70,13 +70,10 @@ RUN sh ./bootstrap && \
 
 
 ################################################################
-## clack
+## Clack
 
-###
-# Caveat: Lack in Quicklisp dists is not loadable due to https://github.com/fukamachi/lack/commit/c0ead6f980c1eec2b276258f0ac5805347255ea9
-###
-
-RUN git clone https://github.com/fukamachi/lack $HOME/.roswell/local-projects/lack && \
+RUN git clone https://github.com/fukamachi/clack $HOME/.roswell/local-projects/clack && \
+    ros -e "(ql:quickload :clack)" && \
     ros install clack && \
     cp $HOME/.roswell/bin/clackup /usr/local/bin/
 
@@ -87,3 +84,10 @@ RUN git clone https://github.com/fukamachi/lack $HOME/.roswell/local-projects/la
 RUN git clone https://github.com/fukamachi/qlot $HOME/.roswell/local-projects/qlot && \
     ros install qlot && \
     cp $HOME/.roswell/bin/qlot /usr/local/bin/
+
+
+################################################################
+## Woo (make cache)
+
+RUN git clone https://github.com/fukamachi/woo $HOME/.roswell/local-projects/woo && \
+    ros -e "(ql:quickload :woo)"
