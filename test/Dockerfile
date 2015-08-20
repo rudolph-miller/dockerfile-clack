@@ -7,5 +7,5 @@ MAINTAINER Rudolph Miller
 
 ADD app.lisp /usr/local/src/clack-test/
 
-ENTRYPOINT ["woo", "--port", "6000", "/usr/local/src/clack-test/app.lisp"]
+CMD clackup --port 6000 --server woo /usr/local/src/clack-test/app.lisp
 EXPOSE 6000

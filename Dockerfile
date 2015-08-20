@@ -87,13 +87,3 @@ RUN git clone https://github.com/fukamachi/lack $HOME/.roswell/local-projects/la
 RUN git clone https://github.com/fukamachi/qlot $HOME/.roswell/local-projects/qlot && \
     ros install qlot && \
     cp $HOME/.roswell/bin/qlot /usr/local/bin/
-
-
-################################################################
-## woo
-
-RUN git clone https://github.com/fukamachi/woo $HOME/.roswell/local-projects/woo && \
-    ros install woo && \
-    $HOME/.roswell/bin/install-woo && \
-    ros install woo && \
-    cp $HOME/.roswell/bin/woo /usr/local/bin/
